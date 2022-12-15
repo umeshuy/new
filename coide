@@ -1,0 +1,45 @@
+var obj ={num:20};
+
+function addThis(a,b,c){
+return this.num+a+b+c;
+}
+
+console.log(addThis.call(obj,1,2,3));
+
+var arr= [4,5,6];
+console.log(addThis.apply(obj,arr));
+
+var obj2 ={number:23};
+function subTract(a){
+return this.number - a;
+}
+var bind = subTract.bind(obj2);
+console.log(bind(4));
+
+var student ={age:20};
+function printAge(){
+console.log(this.age);
+}
+var ageOfStudent = printAge.bind(student);
+ageOfStudent();
+
+
+/// closures
+var add = function(a,b){
+console.log(a+b);
+}
+
+var addByTwo = add.bind(this,2);
+addByTwo(3);
+
+var addByFive = add.bind(this,5);
+addByFive(6);
+
+let multiply = function(x,y){
+return function(y){
+console.log(x*y);
+}
+}
+
+let multiplyTwo = multiply(2);
+multiplyTwo(5);
