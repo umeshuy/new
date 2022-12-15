@@ -24,7 +24,7 @@ var ageOfStudent = printAge.bind(student);
 ageOfStudent();
 
 
-/// closures
+/// currying
 var add = function(a,b){
 console.log(a+b);
 }
